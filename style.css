@@ -1,0 +1,268 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #5b887d;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+
+.site-header {
+    position: relative;
+    min-height: 100vh;
+}
+
+/* NAV */
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 80px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 5%;
+
+    background: transparent;
+    z-index: 10;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color .3s;
+}
+
+.nav-links a:hover {
+    color: #ffe46b;
+}
+
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 120px 8% 60px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(20, 30, 15, .65),
+            rgba(20, 30, 15, .05)
+        ),
+        url("img/arbol-hero.webp");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-content {
+    max-width: 550px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1.05;
+}
+
+.hero h1 span {
+    display: block;
+    font-size: .55em;
+    margin-top: 20px;
+    color: #ffe46b;
+}
+
+.btn-hero {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 25px;
+
+    color: white;
+    text-decoration: none;
+
+    border: 1px solid white;
+    border-radius: 30px;
+    background: rgba(255,255,255,.12);
+
+    backdrop-filter: blur(8px);
+}
+
+
+/* MARCOS LATERALES */
+
+.side-frame {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+
+    width: 150px;
+
+    background-image: url("img/marco-vegetacion.png");
+    background-repeat: repeat-y;
+    background-position: top center;
+    background-size: 100% auto;
+
+    pointer-events: none;
+    z-index: 20;
+}
+
+/* MARCO IZQUIERDO */
+
+.left-frame {
+    left: 0;
+}
+
+/* MARCO DERECHO */
+
+.right-frame {
+    right: 0;
+
+    transform: scaleX(-1);
+}
+
+
+/* CONTENIDO GENERAL */
+
+main {
+    width: min(100% - 300px, 1100px);
+    margin: 0 auto;
+}
+
+.banner-top,
+.acerca-de-mi,
+.galeria-central,
+.servicios {
+    padding: 70px 30px;
+}
+
+/* GALERÍA */
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.galeria-grid article {
+    min-height: 220px;
+    padding: 25px;
+
+    display: flex;
+    align-items: end;
+
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 15px;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 70px 30px;
+    background: #10251f;
+}
+
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+    .side-frame {
+        width: 100px;
+    }
+
+    main {
+        width: calc(100% - 200px);
+    }
+
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    /* Ocultar marco derecho */
+
+    .right-frame {
+        display: none;
+    }
+
+    /* Reducir marco izquierdo */
+
+    .left-frame {
+        width: 65px;
+    }
+
+    /* Reservar espacio para la ilustración */
+
+    main {
+        width: calc(100% - 65px);
+        margin-left: 65px;
+    }
+
+    .navbar {
+        min-height: 65px;
+        padding: 15px;
+    }
+
+    .nav-links {
+        gap: 12px;
+        font-size: .8rem;
+    }
+
+    .hero {
+        min-height: 90svh;
+        padding: 110px 20px 50px 85px;
+        background-position: 60% center;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .banner-top,
+    .acerca-de-mi,
+    .galeria-central,
+    .servicios {
+        padding: 45px 20px;
+    }
+
+    .galeria-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
